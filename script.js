@@ -121,6 +121,7 @@ timeP.textContent = 'Time'
 timeSpan.textContent = '00:00'
 
 const deck = [...cards, ...cards].sort(() => Math.random() - 0.5)
+const stateCard = []
 
 const cardContainer = document.createElement('div')
 cardContainer.classList.add('cardContainer')
@@ -144,6 +145,7 @@ deck.forEach((cardData, index) => {
 	card.addEventListener('click', () => {
 		openCard(card)
 	})
+	stateCard.push(card)
 })
 
 function openCard(card) {
@@ -198,3 +200,21 @@ function resetCards() {
 	secondCard = null
 	lockBoard = false
 }
+
+function newGame(card) {
+	movesCount = 0
+	mathcedCount = 0
+	movesSpan.textContent = movesCount
+	matchedSpan.textContent = `${mathcedCount} / 8`
+
+	card.forEach(ca => {
+		ca.classList.remove('open')
+		ca.classList.remove('matched')
+	})
+
+	resetCards()
+}
+
+newGameBtn.addEventListener('click', () => {
+	newGame(stateCard)
+})
