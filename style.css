@@ -56,27 +56,87 @@
 	margin-top: 40px;
 }
 
-.mathcedContainer {
+.matchedContainer {
 	border-radius: 1rem;
 	border: 1px solid;
 	border-color: rgb(30 41 59 / var(--tw-border-opacity, 1));
-	padding: 1rem;
+	padding: 25px 50px;
 	text-align: center;
 	background-color: rgb(30 41 59);
+	font-family: Arial, Helvetica, sans-serif;
 }
 .movesContainer {
 	border-radius: 1rem;
 	border: 1px solid;
 	border-color: rgb(30 41 59 / var(--tw-border-opacity, 1));
-	padding: 1rem;
+	padding: 25px 50px;
 	text-align: center;
 	background-color: rgb(30 41 59);
+	font-family: Arial, Helvetica, sans-serif;
 }
 .timeContainer {
 	border-radius: 1rem;
 	border: 1px solid;
 	border-color: rgb(30 41 59 / var(--tw-border-opacity, 1));
-	padding: 1rem;
+	padding: 25px 50px;
 	text-align: center;
 	background-color: rgb(30 41 59);
+	font-family: Arial, Helvetica, sans-serif;
+}
+.timeP {
+	font-size: 2rem;
+	background-color: rgb(30 41 59);
+}
+.movesP {
+	font-size: 2rem;
+	background-color: rgb(30 41 59);
+}
+.matchedP {
+	font-size: 2rem;
+	background-color: rgb(30 41 59);
+}
+.matchedSpan {
+	background-color: rgb(30 41 59);
+	font-size: 2rem;
+}
+.movesSpan {
+	background-color: rgb(30 41 59);
+	font-size: 2rem;
+}
+.timeSpan {
+	background-color: rgb(30 41 59);
+	font-size: 2rem;
+}
+
+.cardContainer {
+	display: grid;
+	margin: 0 auto;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 30px;
+	align-items: center;
+	margin-top: 60px;
+}
+.cardContainer div {
+	margin: 0 auto;
+	padding: 50px;
+	border: 1px solid aqua;
+	border-radius: 1rem;
+}
+
+.cardContainer div img {
+	visibility: hidden;
+}
+.cardContainer div {
+	background-image: url('pics/puzzle.png');
+	background-repeat: no-repeat;
+	background-size: 40%;
+	background-position: center;
+	cursor: pointer;
+}
+.cardContainer div.open img {
+	visibility: visible;
+}
+
+.card.matched {
+	pointer-events: none;
 }
