@@ -182,9 +182,11 @@ function checkMatch() {
 
 		resetCards()
 
+		if (mathcedCount === 8) {
+			endGame(closeBtn)
+		}
 		return
 	}
-
 	lockBoard = true
 
 	setTimeout(() => {
@@ -225,3 +227,56 @@ function newGame() {
 newGameBtn.addEventListener('click', () => {
 	newGame()
 })
+
+function endGame(close) {
+	const modal = document.createElement('div')
+	contentContainer.appendChild(modal)
+	modal.classList.add('modal')
+
+	const modalContent = document.createElement('div')
+	modalContent.classList.add('modalContent')
+	modal.appendChild(modalContent)
+
+	const h2 = document.createElement('h2')
+	h2.classList.add('h2')
+	h2.textContent = 'Congratulations. You Win! 1000$'
+	modalContent.appendChild(h2)
+
+	const resultDiv = document.createElement('div')
+	resultDiv.classList.add('resultDiv')
+	modalContent.appendChild(resultDiv)
+	const resultText = document.createElement('h2')
+	resultText.classList.add('resultText')
+	resultDiv.appendChild(resultText)
+	resultText.textContent = 'Your Moves to Win:'
+	const resultP = document.createElement('h2')
+	resultP.classList.add('resultP')
+	resultDiv.appendChild(resultP)
+	resultP.textContent = movesCount
+
+	const modalBtns = document.createElement('div')
+	modalBtns.classList.add('modalBtns')
+	modalContent.appendChild(modalBtns)
+
+	const newGameModal = document.createElement('button')
+	newGameModal.classList.add('newGameModal')
+	modalBtns.appendChild(newGameModal)
+	newGameModal.textContent = 'New Game'
+
+	const closeBtn = document.createElement('button')
+	closeBtn.classList.add('closeBtn')
+	modalBtns.appendChild(closeBtn)
+	closeBtn.textContent = 'Close'
+
+	closeBtn.addEventListener('click', () => {
+		close(modal)
+	})
+	newGameModal.addEventListener('click', () => {
+		close(modal)
+		newGame()
+	})
+}
+
+function closeBtn(modal) {
+	modal.remove()
+}
