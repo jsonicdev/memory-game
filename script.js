@@ -201,20 +201,27 @@ function resetCards() {
 	lockBoard = false
 }
 
-function newGame(card) {
+function newGame() {
 	movesCount = 0
 	mathcedCount = 0
 	movesSpan.textContent = movesCount
 	matchedSpan.textContent = `${mathcedCount} / 8`
-
-	card.forEach(ca => {
-		ca.classList.remove('open')
-		ca.classList.remove('matched')
-	})
-
 	resetCards()
+	deck.sort(() => Math.random() - 0.5)
+
+	stateCard.forEach((card, index) => {
+		const cardData = deck[index]
+
+		card.dataset.pair = cardData.pairId
+
+		const img = card.querySelector('img')
+		img.src = cardData.image
+
+		card.classList.remove('open')
+		card.classList.remove('matched')
+	})
 }
 
 newGameBtn.addEventListener('click', () => {
-	newGame(stateCard)
+	newGame()
 })
