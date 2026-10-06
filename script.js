@@ -183,7 +183,7 @@ function checkMatch() {
 		resetCards()
 
 		if (mathcedCount === 8) {
-			endGame(closeBtn)
+			endGame()
 		}
 		return
 	}
@@ -228,7 +228,7 @@ newGameBtn.addEventListener('click', () => {
 	newGame()
 })
 
-function endGame(close) {
+function endGame() {
 	const modal = document.createElement('div')
 	contentContainer.appendChild(modal)
 	modal.classList.add('modal')
@@ -269,14 +269,107 @@ function endGame(close) {
 	closeBtn.textContent = 'Close'
 
 	closeBtn.addEventListener('click', () => {
-		close(modal)
+		closeModal(modal)
 	})
 	newGameModal.addEventListener('click', () => {
-		close(modal)
+		closeModal(modal)
 		newGame()
+	})
+
+	saveResult()
+}
+
+function saveResult() {
+	const results = JSON.parse(localStorage.getItem('leaderboard')) || []
+
+	results.push({
+		moves: movesCount,
+		date: new Date().toISOString(),
+	})
+
+	results.sort((a, b) => a.moves - b.moves)
+
+	const top10 = results.slice(0, 10)
+
+	localStorage.setItem('leaderboard', JSON.stringify(top10))
+}
+
+function showLeaderoard() {
+	const modal = document.createElement('div')
+	contentContainer.appendChild(modal)
+	modal.classList.add('modal')
+
+	const modalContent = document.createElement('div')
+	modalContent.classList.add('modalContent')
+	modal.appendChild(modalContent)
+
+	const modalTitle = document.createElement('h2')
+	modalTitle.classList.add('modalTitle')
+	modalContent.appendChild(modalTitle)
+	modalTitle.textContent = 'Leaderboards'
+
+	const modalTable = document.createElement('div')
+	modalTable.classList.add('modalTable')
+	modalContent.appendChild(modalTable)
+
+	const modalRank = document.createElement('span')
+	modalRank.classList.add('modalRank')
+	modalRank.textContent = 'RANK'
+	modalTable.appendChild(modalRank)
+	const modalMoves = document.createElement('span')
+	modalMoves.classList.add('modalMoves')
+	modalMoves.textContent = 'MOVES'
+	modalTable.appendChild(modalMoves)
+	const modalDate = document.createElement('span')
+	modalDate.classList.add('modalDate')
+	modalDate.textContent = 'DATE'
+	modalTable.appendChild(modalDate)
+
+	const notYet = document.createElement('h3')
+	notYet.classList.add('notYet')
+	modalContent.appendChild(notYet)
+	notYet.textContent = 'Пока нет результатов'
+
+	const results =
+		JSON.parse(localStorage.getItem('leaderboard')) || modalLeaders.remove()
+
+	if (results.length === 0) {
+		notYet.classList.add('active')
+	}
+
+	results.forEach((result, index) => {
+		const modalLeaders = document.createElement('div')
+		modalLeaders.classList.add('modalLeaders')
+		modalContent.appendChild(modalLeaders)
+
+		const modalLeadersR = document.createElement('span')
+		modalLeadersR.classList.add('modalRank')
+		modalLeadersR.textContent = `#${index + 1}`
+		modalLeaders.appendChild(modalLeadersR)
+		const modalLeadersM = document.createElement('span')
+		modalLeadersM.classList.add('modalMoves')
+		modalLeadersM.textContent = result.moves
+		modalLeaders.appendChild(modalLeadersM)
+		const modalLeadersD = document.createElement('span')
+		modalLeadersD.classList.add('modalDate')
+		modalLeadersD.textContent = new Date(result.date).toLocaleDateString()
+		modalLeaders.appendChild(modalLeadersD)
+	})
+
+	const closeBtn = document.createElement('button')
+	closeBtn.classList.add('modalClose')
+	modalContent.appendChild(closeBtn)
+	closeBtn.textContent = 'Close'
+
+	closeBtn.addEventListener('click', () => {
+		closeModal(modal)
 	})
 }
 
-function closeBtn(modal) {
+leadBtn.addEventListener('click', () => {
+	showLeaderoard()
+})
+
+function closeModal(modal) {
 	modal.remove()
 }

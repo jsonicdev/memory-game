@@ -207,3 +207,84 @@
 	background-color: transparent;
 	padding-top: 20px;
 }
+
+.modalTitle {
+	margin-top: 30px;
+	font-family: Arial, Helvetica, sans-serif;
+	background-color: transparent;
+	border-bottom: 1px solid dimgray;
+	padding-bottom: 20px;
+}
+
+.modalTable {
+	display: flex;
+	margin-top: 10px;
+	border-radius: 1rem;
+	background-color: rgba(37, 66, 66, 0.234);
+	border: 1px solid dimgray;
+	justify-content: space-between;
+	padding: 10px 20px;
+
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: 700;
+}
+.modalRank {
+	background-color: transparent;
+}
+.modalMoves {
+	background-color: transparent;
+}
+.modalDate {
+	background-color: transparent;
+}
+
+.modalLeaders {
+	display: flex;
+	justify-content: space-between;
+	padding: 10px 20px;
+	margin: 7px;
+	border-radius: 1rem;
+	border: 1px solid aqua;
+	background-color: transparent;
+	margin-top: 5px;
+	text-align: center;
+}
+.modalLeaders span {
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: 700;
+	font-size: 16px;
+	padding: 10px;
+}
+.notYet {
+	display: none;
+	background-color: transparent;
+	margin-top: 100px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+.notYet.active {
+	display: block;
+}
+
+.modalContent {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+.modalContent button {
+	margin: auto auto 0 auto;
+}
+.modalClose {
+	max-width: 250px;
+	padding: 10px 100px;
+	background-color: transparent;
+	border-radius: 1rem;
+	border: 1px solid aqua;
+	font-weight: 700;
+	font-size: 1rem;
+	cursor: pointer;
+}
+.modalClose:hover {
+	background-color: aqua;
+	color: black;
+	transition: 0.5s ease;
+}
