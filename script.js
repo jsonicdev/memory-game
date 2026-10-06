@@ -330,8 +330,7 @@ function showLeaderoard() {
 	modalContent.appendChild(notYet)
 	notYet.textContent = 'Пока нет результатов'
 
-	const results =
-		JSON.parse(localStorage.getItem('leaderboard')) || modalLeaders.remove()
+	const results = JSON.parse(localStorage.getItem('leaderboard')) || []
 
 	if (results.length === 0) {
 		notYet.classList.add('active')
