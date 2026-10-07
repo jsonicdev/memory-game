@@ -1,0 +1,290 @@
+* {
+	background-color: rgb(2 6 23 / var(--tw-bg-opacity, 1));
+	color: aliceblue;
+	margin: 0;
+	box-sizing: border-box;
+}
+.wrapper {
+	max-width: 1440px;
+	margin: 0 auto;
+}
+
+.contentContainer {
+	max-width: 768px;
+	margin: 40px auto;
+}
+
+.headerContainer {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 20px;
+	border: 1px solid;
+	background-color: rgb(15 23 42 / 0.8);
+	border-radius: 1rem;
+	border-color: rgb(30 41 59 / var(--tw-border-opacity, 1));
+}
+.h1 {
+	font-family: Arial, Helvetica, sans-serif;
+}
+.logo {
+	background-color: transparent;
+}
+
+.logoBtns {
+	gap: 10px;
+}
+
+.logoBtns button {
+	border: 0;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	font-weight: 600;
+	border-radius: 10px;
+	padding: 10px;
+	cursor: pointer;
+}
+.logoBtns button:first-child {
+	background-color: rgb(30 41 59);
+	margin-right: 10px;
+}
+.logoBtns button:last-child {
+	background-color: blueviolet;
+}
+
+.resultContent {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 40px;
+}
+
+.matchedContainer {
+	border-radius: 1rem;
+	border: 1px solid;
+	border-color: rgb(30 41 59 / var(--tw-border-opacity, 1));
+	padding: 25px 50px;
+	text-align: center;
+	background-color: rgb(30 41 59);
+	font-family: Arial, Helvetica, sans-serif;
+}
+.movesContainer {
+	border-radius: 1rem;
+	border: 1px solid;
+	border-color: rgb(30 41 59 / var(--tw-border-opacity, 1));
+	padding: 25px 50px;
+	text-align: center;
+	background-color: rgb(30 41 59);
+	font-family: Arial, Helvetica, sans-serif;
+}
+.timeContainer {
+	border-radius: 1rem;
+	border: 1px solid;
+	border-color: rgb(30 41 59 / var(--tw-border-opacity, 1));
+	padding: 25px 50px;
+	text-align: center;
+	background-color: rgb(30 41 59);
+	font-family: Arial, Helvetica, sans-serif;
+}
+.timeP {
+	font-size: 2rem;
+	background-color: rgb(30 41 59);
+}
+.movesP {
+	font-size: 2rem;
+	background-color: rgb(30 41 59);
+}
+.matchedP {
+	font-size: 2rem;
+	background-color: rgb(30 41 59);
+}
+.matchedSpan {
+	background-color: rgb(30 41 59);
+	font-size: 2rem;
+}
+.movesSpan {
+	background-color: rgb(30 41 59);
+	font-size: 2rem;
+}
+.timeSpan {
+	background-color: rgb(30 41 59);
+	font-size: 2rem;
+}
+
+.cardContainer {
+	display: grid;
+	margin: 0 auto;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 30px;
+	align-items: center;
+	margin-top: 60px;
+}
+.cardContainer div {
+	margin: 0 auto;
+	padding: 50px;
+	border: 1px solid aqua;
+	border-radius: 1rem;
+}
+
+.cardContainer div img {
+	visibility: hidden;
+}
+.cardContainer div {
+	background-image: url('pics/puzzle.png');
+	background-repeat: no-repeat;
+	background-size: 40%;
+	background-position: center;
+	cursor: pointer;
+}
+.cardContainer div.open img {
+	visibility: visible;
+}
+
+.card.matched {
+	pointer-events: none;
+}
+
+.modal {
+	display: flex;
+	position: fixed;
+	inset: 0;
+	background: rgba(0, 0, 0, 0.4);
+	align-items: center;
+	z-index: 1000;
+	backdrop-filter: blur(10px);
+}
+.h2 {
+	font-family: Arial, Helvetica, sans-serif;
+	background-color: rgb(15 23 42);
+	text-align: center;
+	color: yellow;
+	font-size: 2rem;
+	margin: 0;
+	padding: 20px;
+	margin-bottom: 20px;
+}
+.modalBtns {
+	display: flex;
+	background-color: rgb(15 23 42);
+	justify-content: center;
+	margin-top: 100px;
+	gap: 20px;
+}
+.modalBtns button {
+	border: 1px solid aqua;
+	padding: 20px 40px;
+	border-radius: 1rem;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: 600;
+	cursor: pointer;
+	font-size: 1rem;
+	background-color: transparent;
+}
+.modalContent {
+	border: 1px solid rgba(5, 203, 243, 0.8);
+	box-shadow: 0 0 1050px rgba(100, 180, 255, 0.55);
+	width: 600px;
+	height: 504px;
+	margin: 0 auto;
+	border-radius: 1rem;
+	padding: 16px;
+	text-align: center;
+	background-color: rgb(15 23 42);
+}
+.resultDiv {
+	padding: 20px;
+	font-size: 1rem;
+	background-color: rgba(37, 66, 66, 0.234);
+	border-radius: 1rem;
+}
+.resultText {
+	font-size: 2rem;
+	font-family: Arial, Helvetica, sans-serif;
+	background-color: transparent;
+}
+.resultP {
+	font-size: 2rem;
+	font-family: Arial, Helvetica, sans-serif;
+	background-color: transparent;
+	padding-top: 20px;
+}
+
+.modalTitle {
+	margin-top: 30px;
+	font-family: Arial, Helvetica, sans-serif;
+	background-color: transparent;
+	border-bottom: 1px solid dimgray;
+	padding-bottom: 20px;
+}
+
+.modalTable {
+	display: flex;
+	margin-top: 10px;
+	border-radius: 1rem;
+	background-color: rgba(37, 66, 66, 0.234);
+	border: 1px solid dimgray;
+	justify-content: space-between;
+	padding: 10px 20px;
+
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: 700;
+}
+.modalRank {
+	background-color: transparent;
+}
+.modalMoves {
+	background-color: transparent;
+}
+.modalDate {
+	background-color: transparent;
+}
+
+.modalLeaders {
+	display: flex;
+	justify-content: space-between;
+	padding: 10px 20px;
+	margin: 7px;
+	border-radius: 1rem;
+	border: 1px solid aqua;
+	background-color: transparent;
+	margin-top: 5px;
+	text-align: center;
+}
+.modalLeaders span {
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: 700;
+	font-size: 16px;
+	padding: 10px;
+}
+.notYet {
+	display: none;
+	background-color: transparent;
+	margin-top: 100px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+.notYet.active {
+	display: block;
+}
+
+.modalContent {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+.modalContent button {
+	margin: auto auto 0 auto;
+}
+.modalClose {
+	max-width: 250px;
+	padding: 10px 100px;
+	background-color: transparent;
+	border-radius: 1rem;
+	border: 1px solid aqua;
+	font-weight: 700;
+	font-size: 1rem;
+	cursor: pointer;
+}
+.modalClose:hover {
+	background-color: aqua;
+	color: black;
+	transition: 0.5s ease;
+}
